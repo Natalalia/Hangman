@@ -36,6 +36,7 @@ function Chars({ charSelector }) {
       {letters.map(letter => {
         return (
           <span
+            key={letter}
             onClick={() => {
               charSelector(letter);
             }}
@@ -47,6 +48,7 @@ function Chars({ charSelector }) {
       {numbers.map(number => {
         return (
           <span
+            key={number}
             onClick={() => {
               charSelector(number);
             }}
