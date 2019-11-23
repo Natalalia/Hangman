@@ -3,6 +3,7 @@ import React from "react";
 import Chars from "./Chars";
 import HiddenSentence from "./HiddenSentence";
 import Hangman from "./Hangman";
+import TheEnd from "./TheEnd";
 
 class Game extends React.Component {
   state = {
@@ -11,13 +12,17 @@ class Game extends React.Component {
     hangmanSteps: 0
   };
   render() {
-    const { hiddenSentence, hangmanSteps } = this.state;
+    const { hiddenSentence, hangmanSteps, sentenceToGuess } = this.state;
 
     return (
       <>
         <Chars charSelector={this.onCharSelected} />
         <HiddenSentence hiddenSentence={hiddenSentence} />
         <Hangman hangmanSteps={hangmanSteps} />
+        {hangmanSteps === 10 && <TheEnd hangmanSteps={hangmanSteps} />}
+        {hiddenSentence.join("") === sentenceToGuess && (
+          <TheEnd sentenceToGuess={sentenceToGuess} />
+        )}
       </>
     );
   }
@@ -33,7 +38,11 @@ class Game extends React.Component {
         hiddenSentence.splice(i, 1, char);
       }
     }
-    if (!anyExist) {
+    if (
+      !anyExist &&
+      hangmanSteps < 10 &&
+      sentenceToGuess !== hiddenSentence.join("")
+    ) {
       hangmanSteps++;
     }
     this.setState({ hiddenSentence, hangmanSteps });
