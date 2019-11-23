@@ -32,17 +32,15 @@ class Game extends React.Component {
     let { hiddenSentence, hangmanSteps } = this.state;
     let anyExist = false;
 
+    if (hangmanSteps >= 10) return;
     for (let i = 0; i < sentenceToGuess.length; i++) {
       if (char === sentenceToGuess[i]) {
         anyExist = true;
         hiddenSentence.splice(i, 1, char);
       }
     }
-    if (
-      !anyExist &&
-      hangmanSteps < 10 &&
-      sentenceToGuess !== hiddenSentence.join("")
-    ) {
+
+    if (!anyExist && sentenceToGuess !== hiddenSentence.join("")) {
       hangmanSteps++;
     }
     this.setState({ hiddenSentence, hangmanSteps });
