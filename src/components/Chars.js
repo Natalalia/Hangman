@@ -32,10 +32,11 @@ function Chars({ charSelector }) {
   ];
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   return (
-    <>
+    <div id="charsBox">
       {letters.map(letter => {
         return (
           <span
+            class="chars"
             key={letter}
             onClick={() => {
               charSelector(letter);
@@ -48,6 +49,7 @@ function Chars({ charSelector }) {
       {numbers.map(number => {
         return (
           <span
+            class="chars"
             key={number}
             onClick={() => {
               charSelector(number);
@@ -57,7 +59,7 @@ function Chars({ charSelector }) {
           </span>
         );
       })}
-    </>
+    </div>
   );
 }
 

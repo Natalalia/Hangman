@@ -1,22 +1,60 @@
-.App {
+body {
+  font-family: "Crete Round", serif;
+}
+
+#title {
+  font-family: "Titan One", cursive;
+  font-size: 4rem;
+  text-align: center;
+  color: #6614d1;
+}
+
+#instructions {
+  font-family: "Pacifico", cursive;
+  font-size: 2.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#charsBox {
+  height: 35rem;
+  width: 15rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #09d3ac;
+.chars {
+  font-size: 2.5rem;
+  border: solid;
+  border-color: #7b7a7e;
+  border-radius: 2rem;
+  text-align: center;
+  margin: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+#hiddenSentence {
+  display: flex;
+  align-items: flex-end;
+}
+
+.hiddenChar {
+  height: 0.3rem;
+  width: 3rem;
+  background-color: #7b7a7e;
+  margin: 1rem;
+}
+
+.guessedChars {
+  font-size: 2.5rem;
+  width: 3rem;
+  margin: 1rem;
 }

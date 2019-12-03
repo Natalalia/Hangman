@@ -7,7 +7,7 @@ import TheEnd from "./TheEnd";
 
 class Game extends React.Component {
   state = {
-    hiddenSentence: ["_", "_", "_", "_", "_", "_", "_"],
+    hiddenSentence: [null, null, null, null, null, null, null],
     sentenceToGuess: "TITANIC",
     hangmanSteps: 0
   };
@@ -15,7 +15,7 @@ class Game extends React.Component {
     const { hiddenSentence, hangmanSteps, sentenceToGuess } = this.state;
 
     return (
-      <>
+      <div id="main">
         <Chars charSelector={this.onCharSelected} />
         <HiddenSentence hiddenSentence={hiddenSentence} />
         <Hangman hangmanSteps={hangmanSteps} />
@@ -23,7 +23,7 @@ class Game extends React.Component {
         {hiddenSentence.join("") === sentenceToGuess && (
           <TheEnd sentenceToGuess={sentenceToGuess} />
         )}
-      </>
+      </div>
     );
   }
 

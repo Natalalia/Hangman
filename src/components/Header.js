@@ -3,8 +3,8 @@ import React from "react";
 function Header() {
   return (
     <>
-      <h1>Hangman</h1>
-      <h2>Guess the film:</h2>
+      <h1 id="title">Hangman</h1>
+      <h2 id="instructions">Guess the film:</h2>
     </>
   );
 }
