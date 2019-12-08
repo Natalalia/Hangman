@@ -1,7 +1,9 @@
 import React from "react";
 
 function Hangman({ hangmanSteps }) {
-  return <p>Hangman steps: {hangmanSteps}</p>;
+  return (
+    <img src={`./images/hangman${hangmanSteps}.png`} alt="step 0 in hangman" />
+  );
 }
 
 export default Hangman;
