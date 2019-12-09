@@ -1,0 +1,57 @@
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(132, 138, 138, 0.637);
+}
+
+.modal {
+  width: 500px;
+  background: white;
+  border: 1px solid #6614d1;
+  opacity: 1;
+  visibility: visible;
+  animation-name: opac;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+.modal .content {
+  padding: 1rem;
+  border-top: 3rem solid #6614d1;
+}
+
+.modal .actions {
+  background: #6614d1;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .actions button {
+  border: 0;
+  background: #78f89f;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
