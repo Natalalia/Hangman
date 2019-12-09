@@ -4,6 +4,7 @@ import Chars from "./Chars";
 import HiddenSentence from "./HiddenSentence";
 import Hangman from "./Hangman";
 import TheEnd from "./TheEnd";
+import Modal from "./Modal";
 
 class Game extends React.Component {
   state = {
@@ -11,18 +12,32 @@ class Game extends React.Component {
     sentenceToGuess: "TITANIC",
     hangmanSteps: 0
   };
+
+  playAgain = () => {
+    this.setState({
+      hiddenSentence: [null, null, null, null, null, null, null],
+      sentenceToGuess: "TITANIC",
+      hangmanSteps: 0
+    });
+  };
+
   render() {
     const { hiddenSentence, hangmanSteps, sentenceToGuess } = this.state;
+
+    let didYouWin;
+
+    if (hangmanSteps >= 10) didYouWin = false;
+    if (hiddenSentence.join("") === sentenceToGuess) didYouWin = true;
 
     return (
       <div id="main">
         <Chars charSelector={this.onCharSelected} />
         <HiddenSentence hiddenSentence={hiddenSentence} />
         <Hangman hangmanSteps={hangmanSteps} />
-        {hangmanSteps === 10 && <TheEnd hangmanSteps={hangmanSteps} />}
-        {hiddenSentence.join("") === sentenceToGuess && (
-          <TheEnd sentenceToGuess={sentenceToGuess} />
-        )}
+        <Modal show={didYouWin !== undefined} playAgain={this.playAgain}>
+          <TheEnd didYouWin={didYouWin} />
+        </Modal>
+        }
       </div>
     );
   }
@@ -33,6 +48,7 @@ class Game extends React.Component {
     let anyExist = false;
 
     if (hangmanSteps >= 10) return;
+
     for (let i = 0; i < sentenceToGuess.length; i++) {
       if (char === sentenceToGuess[i]) {
         anyExist = true;

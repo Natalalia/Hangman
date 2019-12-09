@@ -1,12 +1,7 @@
 import React from "react";
 
-function TheEnd({ hangmanSteps, sentenceToGuess }) {
-  return (
-    <>
-      {hangmanSteps && <span>You Lose!</span>}
-      {sentenceToGuess && <span>You Win!</span>}
-    </>
-  );
+function TheEnd({ didYouWin }) {
+  return <>{didYouWin ? <span>You Win!</span> : <span>You Lose!</span>}</>;
 }
 
 export default TheEnd;
