@@ -1,9 +1,9 @@
 import React from "react";
 import "../Modal.css";
 
-function Modal({ onClose, show, children }) {
-  const onCloseModal = e => {
-    onClose && onClose(e);
+function Modal({ playAgain, show, children }) {
+  const onPlayAgain = () => {
+    playAgain && playAgain();
   };
 
   if (!show) {
@@ -16,8 +16,8 @@ function Modal({ onClose, show, children }) {
         <div class="actions">
           <button
             class="toggle-button"
-            onClick={e => {
-              onCloseModal(e);
+            onClick={() => {
+              onPlayAgain();
             }}
           >
             Play again!
