@@ -37,7 +37,6 @@ class Game extends React.Component {
         <Modal show={didYouWin !== undefined} playAgain={this.playAgain}>
           <TheEnd didYouWin={didYouWin} />
         </Modal>
-        }
       </div>
     );
   }

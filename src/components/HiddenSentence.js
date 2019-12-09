@@ -3,11 +3,15 @@ import React from "react";
 function HiddenSentence({ hiddenSentence }) {
   return (
     <div id="hiddenSentence">
-      {hiddenSentence.map(char => {
+      {hiddenSentence.map((char, i) => {
         if (char === null) {
-          return <div class="hiddenChar"></div>;
+          return <div key={i} className="hiddenChar"></div>;
         }
-        return <span class="guessedChars">{char}</span>;
+        return (
+          <span key={i} className="guessedChars">
+            {char}
+          </span>
+        );
       })}
     </div>
   );
