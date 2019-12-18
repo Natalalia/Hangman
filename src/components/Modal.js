@@ -10,12 +10,12 @@ function Modal({ playAgain, show, children }) {
     return null;
   }
   return (
-    <div class="modal-wrapper">
-      <div class="modal" id="modal">
-        <div class="content">{children}</div>
-        <div class="actions">
+    <div className="modal-wrapper">
+      <div className="modal" id="modal">
+        <div className="content">{children}</div>
+        <div className="actions">
           <button
-            class="toggle-button"
+            className="toggle-button"
             onClick={() => {
               onPlayAgain();
             }}

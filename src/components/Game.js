@@ -6,19 +6,34 @@ import Hangman from "./Hangman";
 import TheEnd from "./TheEnd";
 import Modal from "./Modal";
 
+import films from "../data/films";
+import formatFilm from "../utils";
+
 class Game extends React.Component {
   state = {
-    hiddenSentence: [null, null, null, null, null, null, null],
-    sentenceToGuess: "TITANIC",
+    hiddenSentence: [],
+    sentenceToGuess: "",
     hangmanSteps: 0
   };
 
-  playAgain = () => {
+  componentDidMount() {
+    this.fetchFilm();
+  }
+
+  fetchFilm = () => {
+    const randomIndex = Math.floor(Math.random() * (films.length - 0) + 0);
+    const sentenceToGuess = films[randomIndex].toUpperCase();
+    const hiddenSentence = formatFilm(sentenceToGuess);
+
     this.setState({
-      hiddenSentence: [null, null, null, null, null, null, null],
-      sentenceToGuess: "TITANIC",
+      hiddenSentence,
+      sentenceToGuess,
       hangmanSteps: 0
     });
+  };
+
+  playAgain = () => {
+    this.fetchFilm();
   };
 
   render() {
