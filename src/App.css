@@ -42,6 +42,10 @@ body {
   width: 3rem;
 }
 
+.chars:disabled {
+  background-color: red;
+}
+
 #hiddenSentence {
   display: flex;
   align-items: flex-end;
