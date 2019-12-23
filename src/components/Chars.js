@@ -4,6 +4,13 @@ class Chars extends React.Component {
   state = {
     clickedChars: []
   };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.flippedGame !== prevProps.flippedGame) {
+      this.setState({ clickedChars: [] });
+    }
+  }
+
   render() {
     const { charSelector } = this.props;
     const { clickedChars } = this.state;

@@ -13,7 +13,8 @@ class Game extends React.Component {
   state = {
     hiddenSentence: [],
     sentenceToGuess: "",
-    hangmanSteps: 0
+    hangmanSteps: 0,
+    flippedGame: true
   };
 
   componentDidMount() {
@@ -25,11 +26,12 @@ class Game extends React.Component {
     const sentenceToGuess = films[randomIndex].toUpperCase();
     const hiddenSentence = formatFilm(sentenceToGuess);
 
-    this.setState({
+    this.setState(state => ({
       hiddenSentence,
       sentenceToGuess,
-      hangmanSteps: 0
-    });
+      hangmanSteps: 0,
+      flippedGame: !state.flippedGame
+    }));
   };
 
   playAgain = () => {
@@ -37,7 +39,12 @@ class Game extends React.Component {
   };
 
   render() {
-    const { hiddenSentence, hangmanSteps, sentenceToGuess } = this.state;
+    const {
+      hiddenSentence,
+      hangmanSteps,
+      sentenceToGuess,
+      flippedGame
+    } = this.state;
 
     let didYouWin;
 
@@ -46,7 +53,7 @@ class Game extends React.Component {
 
     return (
       <div id="main">
-        <Chars charSelector={this.onCharSelected} />
+        <Chars charSelector={this.onCharSelected} flippedGame={flippedGame} />
         <HiddenSentence hiddenSentence={hiddenSentence} />
         <Hangman hangmanSteps={hangmanSteps} />
         <Modal show={didYouWin !== undefined} playAgain={this.playAgain}>
