@@ -8,9 +8,9 @@ function HiddenSentence({ hiddenSentence }) {
           return <div key={i} className="hiddenChar"></div>;
         }
         return (
-          <span key={i} className="guessedChars">
+          <div key={i} className="guessedChars">
             {char}
-          </span>
+          </div>
         );
       })}
     </div>
