@@ -4,6 +4,13 @@ class Chars extends React.Component {
   state = {
     clickedChars: []
   };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.flippedGame !== prevProps.flippedGame) {
+      this.setState({ clickedChars: [] });
+    }
+  }
+
   render() {
     const { charSelector } = this.props;
     const { clickedChars } = this.state;
@@ -41,12 +48,11 @@ class Chars extends React.Component {
       <div id="charsBox">
         {letters.map(letter => {
           return (
-            <span
+            <button
               className="chars"
               key={letter}
               onClick={() => {
-                clickedChars.find(char => char === letter) === undefined &&
-                  charSelector(letter);
+                charSelector(letter);
                 this.setState(state => {
                   return {
                     clickedChars: [letter, ...state.clickedChars]
@@ -58,18 +64,17 @@ class Chars extends React.Component {
               }
             >
               {letter}
-            </span>
+            </button>
           );
         })}
 
         {numbers.map(number => {
           return (
-            <span
+            <button
               className="chars"
               key={number}
               onClick={() => {
-                clickedChars.find(char => char === number) === undefined &&
-                  charSelector(number);
+                charSelector(number);
                 this.setState(state => {
                   return {
                     clickedChars: [number, ...state.clickedChars]
@@ -81,7 +86,7 @@ class Chars extends React.Component {
               }
             >
               {number}
-            </span>
+            </button>
           );
         })}
       </div>
