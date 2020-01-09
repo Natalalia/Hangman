@@ -1,4 +1,5 @@
-const { formatFilm, divideHiddenSentence } = require("../utils");
+import utils from "../utils";
+const { formatFilm, divideHiddenSentence } = utils;
 
 describe("formatFilm", () => {
   it("returns an empty array when passed an empty string", () => {

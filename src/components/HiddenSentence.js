@@ -1,5 +1,6 @@
 import React from "react";
-import { divideHiddenSentence } from "../utils";
+import utils from "../utils";
+const { divideHiddenSentence } = utils;
 
 function HiddenSentence({ hiddenSentence }) {
   const dividedSentence = divideHiddenSentence(hiddenSentence);
