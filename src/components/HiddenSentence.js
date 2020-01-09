@@ -1,15 +1,23 @@
 import React from "react";
+import { divideHiddenSentence } from "../utils";
 
 function HiddenSentence({ hiddenSentence }) {
+  const dividedSentence = divideHiddenSentence(hiddenSentence);
   return (
     <div id="hiddenSentence">
-      {hiddenSentence.map((char, i) => {
-        if (char === null) {
-          return <div key={i} className="hiddenChar"></div>;
-        }
+      {dividedSentence.map((hiddenWord, j) => {
         return (
-          <div key={i} className="guessedChars">
-            {char}
+          <div key={j} className="hiddenWord">
+            {hiddenWord.map((char, i) => {
+              if (char === null) {
+                return <div key={i} className="hiddenChar"></div>;
+              }
+              return (
+                <div key={i} className="guessedChars">
+                  {char}
+                </div>
+              );
+            })}
           </div>
         );
       })}

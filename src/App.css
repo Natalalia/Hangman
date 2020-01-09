@@ -23,11 +23,9 @@ body {
 }
 
 #charsBox {
-  height: 35rem;
-  width: 15rem;
+  width: 33%;
   padding: 2rem;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -47,6 +45,13 @@ body {
 }
 
 #hiddenSentence {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.hiddenWord {
+  padding: 2rem;
   display: flex;
   align-items: flex-end;
 }

@@ -7,7 +7,7 @@ import TheEnd from "./TheEnd";
 import Modal from "./Modal";
 
 import films from "../data/films";
-import formatFilm from "../utils";
+import { formatFilm } from "../utils";
 
 class Game extends React.Component {
   state = {
