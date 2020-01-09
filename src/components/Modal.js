@@ -1,5 +1,5 @@
 import React from "react";
-import "../Modal.css";
+import "../css/Modal.css";
 
 function Modal({ playAgain, show, children }) {
   const onPlayAgain = () => {
