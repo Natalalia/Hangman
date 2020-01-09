@@ -1,6 +1,6 @@
 #root {
   background-color: rgba(255, 255, 255, 0.9);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 body {
@@ -41,11 +41,12 @@ body {
   font-size: 2.5rem;
   border: solid;
   border-color: #7b7a7e;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   text-align: center;
   margin: 0.5rem;
   height: 3rem;
   width: 3rem;
+  padding: 0;
 }
 
 .chars:disabled {
@@ -65,16 +66,19 @@ body {
 }
 
 .hiddenChar {
-  height: 0.3rem;
+  height: 2.5rem;
   width: 3rem;
-  background-color: #7b7a7e;
+  box-sizing: border-box;
+  border-bottom: 0.3rem solid #7b7a7e;
   margin: 1rem;
 }
 
 .guessedChars {
+  line-height: 2.5rem;
   font-size: 2.5rem;
   width: 3rem;
   margin: 1rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -84,7 +88,7 @@ body {
   #charsBox {
     width: 100%;
     justify-content: center;
-    padding: 0.5rem 2rem;
+    padding: 0rem;
   }
   .chars {
     font-size: 1.8rem;
@@ -92,11 +96,12 @@ body {
     width: 2.5rem;
   }
   .hiddenChar {
-    height: 0.3rem;
+    height: 1.8rem;
     width: 2.5rem;
     margin: 1rem;
   }
   .guessedChars {
+    line-height: 1.8rem;
     font-size: 1.8rem;
     width: 2.5rem;
     margin: 1rem;
@@ -106,14 +111,28 @@ body {
     width: 30%;
   }
   #title {
-    margin: 1rem;
     font-size: 2.5rem;
+    padding: 0;
   }
   #instructions {
-    margin: 1rem;
+    margin: 0.5rem;
     font-size: 1.8rem;
   }
   .hiddenWord {
     padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .hiddenChar {
+    width: 1.8rem;
+    margin: 0.5rem;
+  }
+  .guessedChars {
+    width: 1.8rem;
+    margin: 0.5rem;
+  }
+  .chars {
+    margin: 0.15rem;
   }
 }
