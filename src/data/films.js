@@ -12,4 +12,4 @@ const films = [
   "Pulp Fiction"
 ];
 
-module.exports = films;
+export default films;

@@ -19,4 +19,4 @@ const divideHiddenSentence = hiddenSentence => {
   ];
 };
 
-module.exports = { formatFilm, divideHiddenSentence };
+export default { formatFilm, divideHiddenSentence };
